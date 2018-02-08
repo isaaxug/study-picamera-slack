@@ -11,8 +11,8 @@ SLACK_URL = ''
 SLACK_TOKEN = ''
 IMAGE_FILE = 'hello.jpg'
 
-net = cv2.dnn.readNetFromCaffe('models/MobileNetSSD_deploy.prototxt.txt',
-        'models/MobileNetSSD_deploy.caffemodel')
+net = cv2.dnn.readNetFromCaffe('camera/models/MobileNetSSD_deploy.prototxt.txt',
+        'camera/models/MobileNetSSD_deploy.caffemodel')
 
 
 def upload():
@@ -75,7 +75,7 @@ if __name__ == '__main__':
         timestamp = datetime.now()
         occupied, frame = camera.is_detected() 
         if occupied:
-            print('Someone is detected, Time: {}'.format((timestamp - last_uploaded).seconds))
+            print('Someone is detected, Passed seconds: {}'.format((timestamp - last_uploaded).seconds))
             if (timestamp - last_uploaded).seconds >= 10:
                 # cv2.imwrite(IMAGE_FILE, frame)
                 # upload()

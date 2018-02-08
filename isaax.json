@@ -1,13 +1,13 @@
 {
-  "name": "pifeed",
-  "version": "",
+  "name": "slack-integration",
+  "version": "0.0.1",
   "description": "",
   "main": "main.py",
   "author": "",
   "license": "",
   "language":"python",
   "scripts": {
-	"start": "python -u camera/main.py"
+	"start": "python3 -u camera/slack.py"
   },
   "dependency": null
 }
