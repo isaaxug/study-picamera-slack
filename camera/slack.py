@@ -1,14 +1,22 @@
 from __future__ import print_function
 from imutils.video.pivideostream import PiVideoStream
 from datetime import datetime
+import os
 import imutils
 import time
+import sys
 import numpy as np
 import cv2
 
 
-SLACK_URL = ''
-SLACK_TOKEN = ''
+try: 
+    SLACK_URL = os.environ['SLACK_URL']
+    SLACK_TOKEN = os.environ['SLACK_TOKEN']
+except KeyError as e:
+    sys.stderr.write('You need to set {} using Isaax.\n'.format(e))
+    sys.stderr.write('See: https://isaax.io/manual/#/ja/environment-variables\n')
+    sys.exit(1)
+
 IMAGE_FILE = 'hello.jpg'
 
 net = cv2.dnn.readNetFromCaffe('camera/models/MobileNetSSD_deploy.prototxt.txt',
