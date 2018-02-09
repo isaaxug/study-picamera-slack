@@ -84,10 +84,10 @@ if __name__ == '__main__':
         occupied, frame = camera.is_detected() 
         if occupied:
             print('Someone is detected, Passed seconds: {}'.format((timestamp - last_uploaded).seconds))
-            if (timestamp - last_uploaded).seconds >= 10:
-                # cv2.imwrite(IMAGE_FILE, frame)
-                # upload()
+            if (timestamp - last_uploaded).seconds >= 30:
+                cv2.imwrite(IMAGE_FILE, frame)
                 print('Uploading...')
+                upload()
                 last_uploaded = timestamp
                 print('Finished.')
 
