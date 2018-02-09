@@ -3,6 +3,7 @@ from imutils.video.pivideostream import PiVideoStream
 from datetime import datetime
 import os
 import imutils
+import requests
 import time
 import sys
 import numpy as np
