@@ -12,6 +12,7 @@ import cv2
 try: 
     SLACK_URL = os.environ['SLACK_URL']
     SLACK_TOKEN = os.environ['SLACK_TOKEN']
+    SLACK_CHANNEL = os.environ['SLACK_CHANNEL']
 except KeyError as e:
     sys.stderr.write('You need to set {} using Isaax.\n'.format(e))
     sys.stderr.write('See: https://isaax.io/manual/#/ja/environment-variables\n')
@@ -28,7 +29,7 @@ def upload():
     payload = {
         'filename': IMAGE_FILE,
         'token': SLACK_TOKEN,
-        'channels': ['random'],
+        'channels': [SLACK_CHANNEL],
     }
     requests.post(SLACK_URL, params=payload, files=image)
 
