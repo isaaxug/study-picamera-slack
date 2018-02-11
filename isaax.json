@@ -1,13 +1,13 @@
 {
   "name": "slack-integration",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
-  "main": "main.py",
+  "main": "slack.py",
   "author": "",
   "license": "",
   "language":"python",
   "scripts": {
-	"start": "python3 -u camera/slack.py"
+	"start": "python3 -u slack.py"
   },
   "dependency": null
 }
