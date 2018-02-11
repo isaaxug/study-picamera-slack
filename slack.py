@@ -21,8 +21,8 @@ except KeyError as e:
 
 IMAGE_FILE = 'hello.jpg'
 
-net = cv2.dnn.readNetFromCaffe('camera/models/MobileNetSSD_deploy.prototxt.txt',
-        'camera/models/MobileNetSSD_deploy.caffemodel')
+net = cv2.dnn.readNetFromCaffe('models/MobileNetSSD_deploy.prototxt.txt',
+        'models/MobileNetSSD_deploy.caffemodel')
 
 
 def upload():
