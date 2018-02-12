@@ -10,6 +10,7 @@ Isaaxを使って、Picameraで認識した人の画像をSlackにアップロ�
   - [Enable camera interface](#enable-camera-interface)
   - [Expand file system](#expand-file-system)
   - [Install OpenCV3](#install-opencv3)
+- [Set up Isaax](#set-up-isaax)
 
 ## Installation
 
@@ -135,3 +136,33 @@ CONF_SWAPSIZE=100
 $ sudo /etc/init.d/dphys-swapfile stop
 $ sudo /etc/init.d/dphys-swapfile start
 ```
+
+## Set up Isaax
+
+Isaaxの登録とGitHubもしくはBitbucketとの連携を終えていない場合は、[こちらのページ](https://isaax.io/docs/ja/quick-start/2-sign-up)をはじめに確認してください。このセクションでは、アプリケーションをデプロイして、適切なエラーメッセージがダッシュボードで確認できるところまで説明します。(実際の動作を見たい場合は、Slackへ登録してAPIアクセストークンを取得する必要があります)
+
+1. このリポジトリをフォークするか、クローンして自身のアカウントにリポジトリを作成してください。
+2. Isaaxのダッシュボードから新規プロジェクトを作成し、1で作成したリポジトリを紐付けます。
+3. プロジェクトを選択した際に下方に表示されるパネルから「プロジェクトトークン」をクリックします。
+4. 黒い背景となっている方からコマンドをコピーしてRaspberry Piのターミナルに貼り付け、実行します。
+
+スクリプトの実行が成功すれば、デバイスの登録は完了です。この時点でデバイスを管理するIsaax Agentとユーザーアプリケーションがインストールされています。
+
+Isaaxのダッシュボードに戻り、デバイスからの通知を確認しましょう。必要なライブラリのインストールがすでに済んでいる場合、`app-log`を展開すると下記のようなメッセージが表示されます。
+
+```
+You need to set SLACK_URL using Isaax.
+See: https://isaax.io/manual/#/ja/environment-variables
+```
+
+これは、アプリケーションを動作させるために必要な設定が足りていないためです。該当するプロジェクトのクラスターから、環境変数のタブを選択します。
+
+![envs empty](./images/envs-empty.png)
+
+「＋環境変数追加」をクリックし、`SLACK_TOKEN`, `SLACK_URL`, `SLACK_CHANNEL`に適当な値を設定します。
+
+![envs set](./images/envs-set.png)
+
+デバイスを更新するか、「詳細」タブから「Restart Application」をクリックして設定を反映します。
+
+
